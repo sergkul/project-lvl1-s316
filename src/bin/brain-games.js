@@ -1,4 +1,4 @@
-#!/Users/sergey/.nvm/versions/node/v10.6.0/bin/node
+#!/usr/bin/env node
 
 import { greeting } from '..';
 
