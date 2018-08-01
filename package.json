@@ -1,8 +1,8 @@
 {
   "name": "brain-games-sergtt",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "In 'Brain Games' you have to find out a pattern in a numerical sequence. Type a number and check if you are right! The first project in Frontend course by Hexlet.",
-  "keywords": "hexlet, brain-games, numerical-sequence",
+  "keywords": ["hexlet", "brain-games", "numerical-sequence"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
