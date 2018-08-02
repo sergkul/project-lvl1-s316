@@ -1,44 +1,53 @@
 import readlineSync from 'readline-sync';
 
-export const greeting = () => {
-  const username = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${username}!`);
+let gameOver = false;
+let username = '';
+
+const makeNumber = () => Math.floor(Math.random() * 100 + 1);
+
+const isEven = n => n % 2 === 0;
+
+const checkAnswer = (ans, num) => {
+  const trueAns = isEven(num) ? 'yes' : 'no';
+
+  if (ans === trueAns) {
+    console.log('Correct');
+  } else {
+    console.log(`${ans} is wrong answer ;(. Correct answer was ${trueAns}.\nLet's try again, ${username}!`);
+    gameOver = true;
+  }
 };
 
-export const startGame = () => {
-  let gameOver = false;
-  let attepmt = 1;
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!\n`);
+const askQuestion = () => {
+  const question = makeNumber();
 
-  const makeNumber = () => Math.floor(Math.random() * 100 + 1);
+  console.log(`Question: ${question}`);
 
-  const checkNumber = n => (n % 2 === 0 ? 'yes' : 'no');
+  const answer = readlineSync.question('Your answer: ');
 
-  const checkAnswer = (ans, num) => {
-    const trueAns = checkNumber(num);
+  checkAnswer(answer, question);
+};
 
-    if ((ans !== 'yes' && ans !== 'no') || ans !== trueAns) {
-      console.log(`${ans} is wrong answer ;(. Correct answer was ${trueAns}.\nLet's try again, ${name}!`);
-      gameOver = true;
-    } else {
-      console.log('Correct');
-      attepmt += 1;
-    }
-  };
+export const greeting = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('Answer "yes" if number even otherwise answer "no".\n');
 
-  const askQuestion = () => {
-    const number = makeNumber();
-    console.log(`Question: ${number}`);
-    const answer = readlineSync.question('Your answer: ');
-    checkAnswer(answer, number);
-  };
+  username = readlineSync.question('May I have your name? ');
 
-  while (!gameOver && attepmt <= 3) {
+  console.log(`Hello, ${username}!\n`);
+};
+
+export const startBrainEvenGame = () => {
+  greeting();
+
+  const rounds = 3;
+
+  for (let i = 1; i <= rounds; i += 1) {
+    if (gameOver) break;
     askQuestion();
   }
 
-  if (attepmt === 4) {
-    console.log(`Congratulations, ${name}!`);
+  if (!gameOver) {
+    console.log(`Congratulations, ${username}!`);
   }
 };
