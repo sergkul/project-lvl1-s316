@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import startBrainEvenGame from '..';
+import startBrainGame from '..';
 
-startBrainEvenGame();
+startBrainGame('even');
