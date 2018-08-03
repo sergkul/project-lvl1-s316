@@ -4,9 +4,9 @@ const makeNumber = () => Math.floor(Math.random() * 100 + 1);
 
 const isEven = n => n % 2 === 0;
 
-const askQuestion = () => {
-  const rounds = 3;
+const rounds = 3;
 
+const askQuestion = () => {
   for (let i = 1; i <= rounds; i += 1) {
     const question = makeNumber();
 
@@ -16,6 +16,7 @@ const askQuestion = () => {
     const answer = readlineSync.question('Your answer: ');
 
     if (answer !== trueAnswer) {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${trueAnswer}.`);
       return false;
     }
 
@@ -36,7 +37,7 @@ const startBrainEvenGame = () => {
   if (askQuestion()) {
     console.log(`Congratulations, ${username}!`);
   } else {
-    console.log(`${answer} is wrong answer ;(. Correct answer was ${trueAnswer}.\nLet's try again, ${username}!`);
+    console.log(`Let's try again, ${username}!`);
   }
 };
 
