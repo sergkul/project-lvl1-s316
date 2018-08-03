@@ -40,4 +40,19 @@ const startBrainEvenGame = () => {
   }
 };
 
+const startBrainCalcGame = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('What is the result of the expression?\n');
+
+  const username = readlineSync.question('May I have your name? ');
+
+  console.log(`Hello, ${username}!\n`);
+
+  if (askQuestion()) {
+    console.log(`Congratulations, ${username}!`);
+  } else {
+    console.log(`${answer} is wrong answer ;(. Correct answer was ${trueAnswer}.\nLet's try again, ${username}!`);
+  }
+};
+
 export default startBrainEvenGame;
