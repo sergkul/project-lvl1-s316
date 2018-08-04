@@ -26,4 +26,19 @@ const evenGame = () => {
   return true;
 };
 
-export default evenGame;
+const startBrainGameEven = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('Answer "yes" if number even otherwise answer "no".\n');
+
+  const username = readlineSync.question('May I have your name? ');
+
+  console.log(`Hello, ${username}!\n`);
+
+  if (evenGame()) {
+    console.log(`Congratulations, ${username}!`);
+  } else {
+    console.log(`Let's try again, ${username}!`);
+  }
+};
+
+export default startBrainGameEven;

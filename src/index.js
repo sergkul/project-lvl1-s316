@@ -1,4 +1,4 @@
-import readlineSync from 'readline-sync';
+/* import readlineSync from 'readline-sync';
 import evenGame from './games/even';
 import calcGame from './games/calc';
 import gcdGame from './games/gcd';
@@ -35,4 +35,4 @@ const startBrainGame = (gameName) => {
   }
 };
 
-export default startBrainGame;
+export default startBrainGame; */

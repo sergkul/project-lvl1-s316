@@ -36,4 +36,19 @@ const gcdGame = () => {
   return true;
 };
 
-export default gcdGame;
+const startBrainGCDGame = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('Find the greatest common divisor of given numbers.\n');
+
+  const username = readlineSync.question('May I have your name? ');
+
+  console.log(`Hello, ${username}!\n`);
+
+  if (gcdGame()) {
+    console.log(`Congratulations, ${username}!`);
+  } else {
+    console.log(`Let's try again, ${username}!`);
+  }
+};
+
+export default startBrainGCDGame;

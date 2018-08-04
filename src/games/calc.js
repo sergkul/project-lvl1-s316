@@ -48,4 +48,19 @@ const calcGame = () => {
   return true;
 };
 
-export default calcGame;
+const startBrainCalcGame = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('What is the result of the expression?\n');
+
+  const username = readlineSync.question('May I have your name? ');
+
+  console.log(`Hello, ${username}!\n`);
+
+  if (calcGame()) {
+    console.log(`Congratulations, ${username}!`);
+  } else {
+    console.log(`Let's try again, ${username}!`);
+  }
+};
+
+export default startBrainCalcGame;
