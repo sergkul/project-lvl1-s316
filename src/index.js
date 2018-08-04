@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 import evenGame from './games/even';
 import calcGame from './games/calc';
+import gcdGame from './games/gcd';
 
 const startBrainGame = (gameName) => {
   console.log('Welcome to the Brain Games!');
@@ -14,6 +15,10 @@ const startBrainGame = (gameName) => {
     case 'calc':
       console.log('What is the result of the expression?\n');
       game = calcGame;
+      break;
+    case 'gcd':
+      console.log('Find the greatest common divisor of given numbers.\n');
+      game = gcdGame;
       break;
     default:
       break;
