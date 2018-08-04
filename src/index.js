@@ -1,38 +1,41 @@
-/* import readlineSync from 'readline-sync';
-import evenGame from './games/even';
-import calcGame from './games/calc';
-import gcdGame from './games/gcd';
+import readlineSync from 'readline-sync';
 
-const startBrainGame = (gameName) => {
-  console.log('Welcome to the Brain Games!');
-  let game = null;
+const rounds = 3;
 
-  switch (gameName) {
-    case 'even':
-      console.log('Answer "yes" if number even otherwise answer "no".\n');
-      game = evenGame;
-      break;
-    case 'calc':
-      console.log('What is the result of the expression?\n');
-      game = calcGame;
-      break;
-    case 'gcd':
-      console.log('Find the greatest common divisor of given numbers.\n');
-      game = gcdGame;
-      break;
-    default:
-      break;
+const playRounds = (getQuestion, getTrueAnswer) => {
+  for (let i = 1; i <= rounds; i += 1) {
+    const question = getQuestion();
+
+    console.log(`Question: ${question}`);
+
+    const trueAnswer = getTrueAnswer(question);
+    const answer = readlineSync.question('Your answer: ');
+
+    if (answer !== trueAnswer) {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${trueAnswer}.`);
+      return false;
+    }
+
+    console.log('Correct');
   }
 
-  const username = readlineSync.question('May I have your name? ');
+  return true;
+};
 
+const game = (rules, getQuestion, getTrueAnswer) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(rules);
+
+  const username = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${username}!\n`);
 
-  if (game()) {
+  const isWin = playRounds(getQuestion, getTrueAnswer);
+
+  if (isWin) {
     console.log(`Congratulations, ${username}!`);
   } else {
     console.log(`Let's try again, ${username}!`);
   }
 };
 
-export default startBrainGame; */
+export default game;
