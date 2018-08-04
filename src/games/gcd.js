@@ -22,9 +22,7 @@ const getQuestion = () => {
   return `${num1} ${num2}`
 };
 
-const trueAnswer = () => String(getGcd(num1, num2));
-
-const getTrueAnswer = question => (isEven(question) ? 'yes' : 'no');
+const getTrueAnswer = () => String(getGcd(num1, num2));
 
 const startBrainGCDGame = () => game(rules, getQuestion, getTrueAnswer);
 
